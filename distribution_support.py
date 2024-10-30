@@ -32,8 +32,8 @@ def generate_random_application(length_time_array, count_splitter) -> list[int]:
     return array_application
 
 # For normal distribution:
-# мю = Мат. ожидание = 108;
-# сигма = sqrt(мат. ожидание) = sqrt(108).
+# мю = Мат. ожидание = 371;
+# сигма = sqrt(мат. ожидание) = sqrt(371).
 
 def random_values_distribution(array_application, mu, type_dist) -> list[int]:
 

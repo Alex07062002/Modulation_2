@@ -6,11 +6,12 @@ import distribution_support
 
 #Вариант-18
 UNIT_OF_TIME = 100
-COUNT_OF_TIME = 100*UNIT_OF_TIME #(100 minutes)
+COUNT_OF_TIME = 100*UNIT_OF_TIME
 
 INTENSITY = 2.19
-COUNTER_SPLITTER = int(UNIT_OF_TIME//INTENSITY) #service_intensity
-MU = 3.71*UNIT_OF_TIME
+COUNTER_SPLITTER = int(UNIT_OF_TIME//INTENSITY)
+MU = 3.71
+MU_CONVERT = MU*UNIT_OF_TIME
 
 NAME_OF_FILE = "C:\\Users\\Alexey\\Desktop\\Modulation\\Output.xlsx"
 
@@ -19,7 +20,7 @@ if __name__ == "__main__":
     relative_throughput, absolute_bandwidth, probability_failure = distribution_support.important_values(MU,INTENSITY)
     time_array = distribution_support.generate_time_values(COUNT_OF_TIME)
     application_array = distribution_support.generate_random_application(len(time_array),COUNTER_SPLITTER)
-    array_distribution = distribution_support.random_values_distribution(application_array, MU, "Poisson")
+    array_distribution = distribution_support.random_values_distribution(application_array, MU_CONVERT, "Poisson")
     array_status_application, count_success, count_failed = distribution_support.status_application(array_distribution, application_array)
     array_status_chanel = distribution_support.status_of_chanel(array_distribution)
 
